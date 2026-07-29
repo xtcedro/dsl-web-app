@@ -78,114 +78,40 @@ interface StyleCard {
   name: string;
   blurb: string;
   price: string;
-  design: StyleDesign;
+  imageSrc: string;
+  imageAlt: string;
 }
-
-type StyleDesign = "lean-to" | "gable" | "a-frame" | "combo";
 
 const STYLE_CARDS: StyleCard[] = [
   {
     name: "Attached lean-to",
     blurb: "Ties into your existing roofline. The most affordable way to cover one car.",
     price: "From $2,900*",
-    design: "lean-to",
+    imageSrc: "/static/img/carport-lean-to.jpg",
+    imageAlt: "Attached lean-to wood carport tied into a house wall",
   },
   {
     name: "Detached gable",
     blurb: "A freestanding two-car structure with a peaked roof that sheds water fast.",
     price: "From $6,400*",
-    design: "gable",
+    imageSrc: "/static/img/carport-detached-gable.jpg",
+    imageAlt: "Detached gable wood carport with a peaked roof",
   },
   {
     name: "A-frame",
     blurb: "A steeper pitch built for heavy runoff and taller vehicle clearance.",
     price: "From $6,900*",
-    design: "a-frame",
+    imageSrc: "/static/img/carport-a-frame.jpg",
+    imageAlt: "Steep A-frame wood carport with tall vehicle clearance",
   },
   {
     name: "Carport + storage combo",
     blurb: "Covered parking on one side, a locked storage bay on the other.",
     price: "From $8,200*",
-    design: "combo",
+    imageSrc: "/static/img/carport-storage-combo.jpg",
+    imageAlt: "Wood carport with an enclosed storage bay",
   },
 ];
-
-function styleDesign(design: StyleDesign): SafeHtml {
-  switch (design) {
-    case "lean-to":
-      return html`
-        <svg class="style-design style-design--lean-to" viewBox="0 0 260 130" role="img"
-          aria-label="Attached lean-to carport design">
-          <line class="sd-ground" x1="18" y1="112" x2="242" y2="112" />
-          <rect class="sd-wall" x="28" y="38" width="38" height="74" />
-          <line class="sd-line" x1="48" y1="38" x2="48" y2="112" />
-          <polygon class="sd-roof" points="66,43 232,63 232,72 66,52" />
-          <line class="sd-beam" x1="72" y1="63" x2="226" y2="81" />
-          <line class="sd-post" x1="118" y1="69" x2="118" y2="112" />
-          <line class="sd-post" x1="172" y1="76" x2="172" y2="112" />
-          <line class="sd-post" x1="226" y1="82" x2="226" y2="112" />
-          <rect class="sd-footing" x="108" y="108" width="20" height="8" />
-          <rect class="sd-footing" x="162" y="108" width="20" height="8" />
-          <rect class="sd-footing" x="216" y="108" width="20" height="8" />
-          <line class="sd-accent" x1="74" y1="26" x2="228" y2="44" />
-          <text class="sd-label" x="151" y="22" text-anchor="middle">HOUSE TIE-IN</text>
-        </svg>
-      `;
-    case "gable":
-      return html`
-        <svg class="style-design style-design--gable" viewBox="0 0 260 130" role="img"
-          aria-label="Detached gable carport design">
-          <line class="sd-ground" x1="18" y1="112" x2="242" y2="112" />
-          <polygon class="sd-roof" points="34,61 130,25 226,61 221,72 130,40 39,72" />
-          <line class="sd-beam" x1="48" y1="75" x2="212" y2="75" />
-          <line class="sd-post" x1="54" y1="75" x2="54" y2="112" />
-          <line class="sd-post" x1="206" y1="75" x2="206" y2="112" />
-          <line class="sd-post" x1="130" y1="40" x2="130" y2="75" />
-          <line class="sd-line" x1="80" y1="62" x2="130" y2="40" />
-          <line class="sd-line" x1="180" y1="62" x2="130" y2="40" />
-          <rect class="sd-footing" x="44" y="108" width="20" height="8" />
-          <rect class="sd-footing" x="196" y="108" width="20" height="8" />
-          <line class="sd-accent" x1="41" y1="119" x2="219" y2="119" />
-          <text class="sd-label" x="130" y="127" text-anchor="middle">FREESTANDING</text>
-        </svg>
-      `;
-    case "a-frame":
-      return html`
-        <svg class="style-design style-design--a-frame" viewBox="0 0 260 130" role="img"
-          aria-label="A-frame carport design">
-          <line class="sd-ground" x1="18" y1="112" x2="242" y2="112" />
-          <polygon class="sd-roof" points="42,103 130,18 218,103 206,108 130,36 54,108" />
-          <line class="sd-beam" x1="68" y1="94" x2="192" y2="94" />
-          <line class="sd-post" x1="76" y1="88" x2="76" y2="112" />
-          <line class="sd-post" x1="184" y1="88" x2="184" y2="112" />
-          <line class="sd-line" x1="130" y1="36" x2="130" y2="94" />
-          <line class="sd-line" x1="96" y1="68" x2="164" y2="68" />
-          <rect class="sd-footing" x="66" y="108" width="20" height="8" />
-          <rect class="sd-footing" x="174" y="108" width="20" height="8" />
-          <path class="sd-accent" d="M100 49 L130 20 L160 49" />
-          <text class="sd-label" x="130" y="124" text-anchor="middle">HIGH PITCH</text>
-        </svg>
-      `;
-    case "combo":
-      return html`
-        <svg class="style-design style-design--combo" viewBox="0 0 260 130" role="img"
-          aria-label="Carport plus storage combo design">
-          <line class="sd-ground" x1="18" y1="112" x2="242" y2="112" />
-          <polygon class="sd-roof" points="30,58 124,26 230,58 225,68 124,41 35,68" />
-          <line class="sd-beam" x1="42" y1="74" x2="220" y2="74" />
-          <line class="sd-post" x1="48" y1="74" x2="48" y2="112" />
-          <line class="sd-post" x1="118" y1="44" x2="118" y2="112" />
-          <rect class="sd-wall" x="132" y="69" width="78" height="43" />
-          <line class="sd-line" x1="151" y1="112" x2="151" y2="86" />
-          <line class="sd-line" x1="151" y1="86" x2="168" y2="86" />
-          <rect class="sd-footing" x="38" y="108" width="20" height="8" />
-          <rect class="sd-footing" x="108" y="108" width="20" height="8" />
-          <path class="sd-accent" d="M137 78 H205" />
-          <text class="sd-label" x="170" y="62" text-anchor="middle">LOCKED BAY</text>
-        </svg>
-      `;
-  }
-}
 
 function stylesSection(): SafeHtml {
   return html`<section class="section section--alt" id="styles">
@@ -198,7 +124,16 @@ function stylesSection(): SafeHtml {
       (card) =>
         html`
           <article class="style-card">
-            <div class="style-card__design">${styleDesign(card.design)}</div>
+            <div class="style-card__image">
+              <img
+                src="${card.imageSrc}"
+                alt="${card.imageAlt}"
+                width="900"
+                height="600"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <h3>${card.name}</h3>
             <p>${card.blurb}</p>
             <p class="style-card__price">${card.price}</p>

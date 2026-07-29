@@ -19,15 +19,15 @@ Deno.test("GET / returns the landing page with security headers and a CSRF cooki
   assert(body.includes("Definitive Structures"));
 });
 
-Deno.test("GET / includes a design drawing for each public carport shape", async () => {
+Deno.test("GET / includes a generated image for each public carport shape", async () => {
   const res = await app(new Request("http://localhost/"), FAKE_INFO);
   const body = await res.text();
 
-  assert(body.includes('aria-label="Attached lean-to carport design"'));
-  assert(body.includes('aria-label="Detached gable carport design"'));
-  assert(body.includes('aria-label="A-frame carport design"'));
-  assert(body.includes('aria-label="Carport plus storage combo design"'));
-  assertEquals(body.match(/class="style-card__design"/g)?.length, 4);
+  assert(body.includes('src="/static/img/carport-lean-to.jpg"'));
+  assert(body.includes('src="/static/img/carport-detached-gable.jpg"'));
+  assert(body.includes('src="/static/img/carport-a-frame.jpg"'));
+  assert(body.includes('src="/static/img/carport-storage-combo.jpg"'));
+  assertEquals(body.match(/class="style-card__image"/g)?.length, 4);
 });
 
 Deno.test("GET /healthz reports ok", async () => {
@@ -130,4 +130,20 @@ Deno.test("GET /static/css/styles.css is served with a CSS content type", async 
   assertEquals(res.status, 200);
   assert(res.headers.get("content-type")?.includes("text/css"));
   await res.body?.cancel();
+});
+
+Deno.test("GET generated carport images are served with JPEG content types", async () => {
+  const images = [
+    "/static/img/carport-lean-to.jpg",
+    "/static/img/carport-detached-gable.jpg",
+    "/static/img/carport-a-frame.jpg",
+    "/static/img/carport-storage-combo.jpg",
+  ];
+
+  for (const image of images) {
+    const res = await app(new Request(`http://localhost${image}`), FAKE_INFO);
+    assertEquals(res.status, 200);
+    assert(res.headers.get("content-type")?.includes("image/jpeg"));
+    await res.body?.cancel();
+  }
 });
