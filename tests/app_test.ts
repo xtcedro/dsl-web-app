@@ -19,6 +19,17 @@ Deno.test("GET / returns the landing page with security headers and a CSRF cooki
   assert(body.includes("Definitive Structures"));
 });
 
+Deno.test("GET / includes a design drawing for each public carport shape", async () => {
+  const res = await app(new Request("http://localhost/"), FAKE_INFO);
+  const body = await res.text();
+
+  assert(body.includes('aria-label="Attached lean-to carport design"'));
+  assert(body.includes('aria-label="Detached gable carport design"'));
+  assert(body.includes('aria-label="A-frame carport design"'));
+  assert(body.includes('aria-label="Carport plus storage combo design"'));
+  assertEquals(body.match(/class="style-card__design"/g)?.length, 4);
+});
+
 Deno.test("GET /healthz reports ok", async () => {
   const res = await app(new Request("http://localhost/healthz"), FAKE_INFO);
   assertEquals(res.status, 200);

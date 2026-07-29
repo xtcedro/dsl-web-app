@@ -598,6 +598,8 @@ a {
   border: 1px solid var(--line);
   padding: 1.75rem 1.5rem;
   position: relative;
+  display: grid;
+  align-content: start;
 }
 
 .style-card::before {
@@ -611,6 +613,69 @@ a {
 .style-card h3 {
   text-transform: uppercase;
   font-size: 1.05rem;
+}
+
+.style-card__design {
+  height: 8.25rem;
+  margin: -0.35rem 0 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.style-design {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.style-design .sd-line,
+.style-design .sd-beam,
+.style-design .sd-post,
+.style-design .sd-ground,
+.style-design .sd-roof,
+.style-design .sd-wall,
+.style-design .sd-footing {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  vector-effect: non-scaling-stroke;
+}
+
+.style-design .sd-roof {
+  fill: color-mix(in srgb, var(--oak) 14%, transparent);
+}
+
+.style-design .sd-wall,
+.style-design .sd-footing {
+  fill: var(--paper);
+}
+
+.style-design .sd-beam,
+.style-design .sd-post {
+  stroke-width: 3;
+}
+
+.style-design .sd-ground {
+  stroke: var(--line-strong);
+}
+
+.style-design .sd-accent {
+  fill: none;
+  stroke: var(--oxide);
+  stroke-width: 1.6;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  vector-effect: non-scaling-stroke;
+}
+
+.style-design .sd-label {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  fill: var(--oxide);
 }
 
 .style-card__price {
