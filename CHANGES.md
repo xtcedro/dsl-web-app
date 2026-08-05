@@ -29,3 +29,17 @@ All notable changes to this project are documented here.
 - `docs/finding-cheapest-kits-simplest-jobs.md`: sourcing guide for the lowest-cost kits and lowest-
   complexity job type (single-slope attached lean-to), with supplier categories, price benchmarks,
   and a red-flags list for underspecced "cheap" kits.
+- `docs/okc-metro-permit-guide.md`: city-by-city permit/registration rules across OKC, Norman,
+  Moore, and Edmond, plus the state-level 811/frost-line/wind-speed baseline.
+- `docs/pricing-and-quoting.md`: market price benchmarks, a materials+labor+permit quote formula,
+  size/style pricing tiers, and a reusable quick-quote worksheet.
+- `docs/marketing-and-lead-gen-playbook.md`: Google Business Profile setup, local SEO basics,
+  Nextdoor/Facebook community channels, portfolio strategy, and a review-generation flow, all
+  funneling back to the site's quote-request form.
+- `docs/jobsite-safety-checklist.md`: 811-before-digging protocol, OSHA excavation/ladder/fall-
+  protection basics, power tool safety, and a PPE baseline for a small crew.
+- `docs/quote-contract-template.md`: reusable construction agreement template covering scope,
+  deposit terms, permits, change orders, warranty, insurance disclosure, and the FTC 3-day
+  cancellation right.
+- `docs/first-90-days-roadmap.md`: week-by-week launch sequence tying the legal, sourcing, pricing,
+  and marketing docs together, ordered cheapest/most-reversible-first.
