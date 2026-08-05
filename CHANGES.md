@@ -26,3 +26,6 @@ All notable changes to this project are documented here.
 - `docs/reverse-engineering-prefab-kits.md`: internal ops guide for tearing down competitor prefab
   carport kits into a reusable in-house spec (framing, hardware, roofing, footings) with Oklahoma
   code reference numbers and a reusable spec-sheet template.
+- `docs/finding-cheapest-kits-simplest-jobs.md`: sourcing guide for the lowest-cost kits and lowest-
+  complexity job type (single-slope attached lean-to), with supplier categories, price benchmarks,
+  and a red-flags list for underspecced "cheap" kits.
