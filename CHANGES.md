@@ -23,3 +23,6 @@ All notable changes to this project are documented here.
 - Test suite (`deno task test`) covering the contact schema, CSRF comparison, router, rate limiter,
   HTML escaping, and full request/response integration.
 - `README.md` with architecture, security notes, and a pre-launch checklist.
+- `docs/reverse-engineering-prefab-kits.md`: internal ops guide for tearing down competitor prefab
+  carport kits into a reusable in-house spec (framing, hardware, roofing, footings) with Oklahoma
+  code reference numbers and a reusable spec-sheet template.
