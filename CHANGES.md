@@ -43,3 +43,6 @@ All notable changes to this project are documented here.
   cancellation right.
 - `docs/first-90-days-roadmap.md`: week-by-week launch sequence tying the legal, sourcing, pricing,
   and marketing docs together, ordered cheapest/most-reversible-first.
+- `docs/in-person-marketing-guide.md`: identifying strong in-person prospects (property signals, HOA
+  screening, referral partners, home shows) and presenting/closing in person, plus per-city peddler/
+  solicitor license requirements and the FTC 3-day cancellation right.
